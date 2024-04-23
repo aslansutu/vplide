@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+:root {
+  --mainColor: #202424;
+  --mainColor2: #2d2f34;
+  --tabCommon: #424449;
+  --mainBorder: #57595d;
+  --shellColor: #0c1021;
+  --white: #ffffff;
+}
+
+html,
+body {
+  background-color: var(--mainColor);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.ControlP {
+  width: 99%;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  border-width: medium;
+  border-style: groove;
+  border-color: #969696;
+  border-radius: 15px;
+  background-color: DimGray;
+}
+
+.Save {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.FileButton {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ButtonImg {
+  color: black;
+  height: 30px;
+  width: 25px;
+}
+
+.Body {
+  display: flex;
+  flex-direction: row;
+}
+
+.OutputWindow {
+  height: 100%;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border-style: ridge;
+  border-width: thick;
+  border-color: #969696;
+  background-color: #bcbcbc;
+  font-family: Georgia;
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.FileWindow {
+  background-color: #bcbcbc;
+}
+
+.Output {
+  margin-right: 7px;
+  margin-top: 7px;
+  width: 100px;
+}
+
+div {
+  white-space: pre-wrap;
+}
+
+.Disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.mainWrapper {
+  height: calc(100vh - 100px);
+  margin-bottom: 0;
+}
+
+.navbar {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--mainColor);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #222222
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index: 99999;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid var(--mainBorder);
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: var(--mainColor2);
+  cursor: pointer;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.dd-button:hover {
+  background-color: var(--tabCommon);
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  border: 1px solid var(--mainBorder);
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 500px 0 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--mainColor);
+  list-style-type: none;
+}
+
+.dd-input+.dd-menu {
+  display: none;
+}
+
+.dd-input:checked+.dd-menu {
+  display: block;
+}
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-menu li:hover {
+  background-color: var(--tabCommon);
+}
+
+.dd-menu li a {
+  display: block;
+  margin: -10px -20px;
+  padding: 10px 20px;
+}
+
+.dd-menu li.divider {
+  padding: 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.vplideLogo {
+  height: 80px;
+}
+
+.vplideLogo2 {
+  height: 80px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.editorField {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.actionButtons {
+  float: left;
+  width: 50px;
+  background-color: var(--mainColor2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--mainBorder);
+  border-right: 1px solid var(--mainBorder);
+  padding-top: 50px;
+}
+
+.EditorButton {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.EditorImage {
+  height: 40px;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.tabsEditor {
+  float: right;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+}
+
+.tabsWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--mainColor2);
+  height: 50px;
+  border-top: 1px solid var(--mainBorder);
+  border-bottom: 1px solid var(--mainBorder);
+}
+
+.addTabButton {
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  padding: 4px 16px 4px 16px;
+}
+
+.addTabButton:hover {
+  background-color: var(--mainBorder);
+  transition: 0.1s ease-in-out;
+}
+
+.tabNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.tabCommon {
+  background-color: var(--tabCommon);
+  height: 100%;
+  color: var(--white);
+  border: none;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-right: 1px solid var(--mainBorder);
+}
+
+.tabActive {
+  background-color: var(--mainColor);
+}
+
+.tabCommon:hover {
+  background-color: #4f5258;
+  transition: 0.2s ease-in-out;
+}
+
+.shellField {
+  float: right;
+  width: 50%;
+  height: 100%;
+  background-color: var(--mainColor2);
+}
+
+.shellNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  border: 1px solid var(--mainBorder);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.shellButton {
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  background-color: transparent;
+  color: var(--white);
+  padding: 4px 16px 4px 16px;
+}
+
+.shellButton:hover {
+  background-color: var(--mainBorder);
+  transition: 0.1s ease-in-out;
+}
+
+.outputWindow {
+  height: calc(100% - 50px);
+  background-color: #161616;
+  border-left: 1px solid var(--mainBorder);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.codeField {
+  height: 100%;
+}
+
+.verticalButtonGroup {
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabsAndButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  flex-direction: row;
+}
+
+
+/* login screen */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.screen {
+  background: linear-gradient(90deg, var(--mainColor), var(--mainColor2));
+  position: relative;
+  height: 600px;
+  width: 360px;
+  box-shadow: 0px 0px 24px var(--mainBorder);
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.screen__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+
+.screen__background__shape {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.screen__background__shape1 {
+  height: 520px;
+  width: 520px;
+  background: #FFF;
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+  height: 220px;
+  width: 220px;
+  background: var(--tabCommon);
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen__background__shape3 {
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(270deg, var(--tabCommon), var(--mainBorder));
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen__background__shape4 {
+  height: 400px;
+  width: 200px;
+  background: var(--mainBorder);
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
+}
+
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
+}
+
+.login__submit {
+  background: white;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 26px;
+  border: 1px solid var(--mainBorder);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--mainColor2);
+  box-shadow: 0px 2px 2px var(--mainBorder);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: var(--tabCommon);
+  outline: none;
+}
+
+h4.title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+div.login-input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  width: 20.4375rem;
+}
+
+/* Input*/
+.login-input-underlined>input,
+.login-input-filled>input {
+  border: none;
+  border-bottom: 0.125rem solid var(--mainColor2);
+  width: 100%;
+  height: 2rem;
+  font-size: 1.0625rem;
+  padding-left: 0.875rem;
+  line-height: 147.6%;
+  padding-top: 0.825rem;
+  padding-bottom: 0.5rem;
+  background-color: transparent;
+}
+
+.login-input-underlined>input:focus,
+.login-input-filled>input:focus {
+  outline: none;
+}
+
+.login-input-underlined>.login-input-label,
+.login-input-filled>.login-input-label {
+  position: absolute;
+  top: 0.2375rem;
+  left: 0.875rem;
+  line-height: 147.6%;
+  color: var(--mainColor2);
+  transition: top .2s;
+}
+
+.login-input-underlined>svg,
+.login-input-filled>svg {
+  position: absolute;
+  top: 0.9375rem;
+  right: 0.875rem;
+  fill: var(--mainColor2);
+}
+
+.login-input-underlined>.login-input-helper,
+.login-input-filled>.login-input-helper {
+  font-size: 0.9375rem;
+  color: var(--mainColor2);
+  letter-spacing: 0.0275rem;
+  margin: 0.125rem 0.875rem;
+}
+
+.login-input-underlined>input:hover,
+.login-input-filled>input:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: var(--mainColor);
+}
+
+.login-input-underlined>input:focus+.login-input-label,
+.login-input-underlined>input:valid+.login-input-label,
+.login-input-filled>input:focus+.login-input-label,
+.login-input-filled>input:valid+.login-input-label {
+  top: -13px;
+  font-size: 0.9375rem;
+  margin-bottom: 64px;
+  ;
+}
+
+.marginFromTop {
+  margin-top: 40px;
+}
+
+.noStyleInput {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: white;
+  width: calc(100% - 20px);
+}
+
+.noStyleInput:focus {
+  outline: none;
+
+}

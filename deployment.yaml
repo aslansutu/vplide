@@ -1,0 +1,111 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: batuhanacet/frontend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_BACKEND_URL
+              value: http://34.88.68.160:80 # Değişiklik yapılacak
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: batuhanacet/backend
+          ports:
+            - containerPort: 8000
+          env:
+            - name: EXEC_SERVER_URL
+              value: http://34.88.148.131:80
+            - name: ALLOWED_ORIGINS_IP
+              value: "34.88.36.14:80,34.88.36.14"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: execserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: execserver
+  template:
+    metadata:
+      labels:
+        app: execserver
+    spec:
+      containers:
+        - name: execserver
+          image: batuhanacet/execserver
+          ports:
+            - containerPort: 8001
+          env:
+            - name: ALLOWED_ORIGINS_IP
+              value: "34.88.68.160,34.88.68.160:80"    
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: execserver-service
+spec:
+  selector:
+    app: execserver
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8001 
+  type: LoadBalancer
